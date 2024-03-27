@@ -143,8 +143,8 @@ app.post('/EmailVer', async (req, res) => {
                 const code = verifyCode.toString();
                 await checkRoll.updateOne({ Auth: code });
                 let transporter = await nodemailer.createTransport({
-                    host: "smtp.gmail.com",
-                    port: 587,
+                    host: `${process.env.HOST}`,
+                    port: process.env.SMTP_PORT,
                     authMethod: 'plain',
                     auth: {
                         user: `${process.env.USER}`,
