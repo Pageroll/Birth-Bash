@@ -17,7 +17,7 @@ const cookieParser = require('cookie-parser')
 
 
 const corsOptions = {
-    origin: `http://localhost:3000`,
+    origin: `${process.env.CORS_ORIGIN}`,
     credentials: true, // This is important for cookies
     methods: ["GET", "POST", "DELETE"],
 };
@@ -147,8 +147,8 @@ app.post('/EmailVer', async (req, res) => {
                     port: 587,
                     authMethod: 'plain',
                     auth: {
-                        user: "robertjr248@gmail.com",
-                        pass: "izsw bnkl akor ugte"
+                        user: `${process.env.USER}`,
+                        pass: `${process.env.PASS}`
                     },
                     tls: {
                         rejectUnauthorized: false
@@ -276,8 +276,8 @@ app.post('/mailSender', async (req, res) => {
             port: 587,
             authMethod: 'plain',
             auth: {
-                user: "robertjr248@gmail.com",
-                pass: "izsw bnkl akor ugte"
+                user: `${process.env.USER}`,
+                pass: `${process.env.PASS}`
             }
         });
 

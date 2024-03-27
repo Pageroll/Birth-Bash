@@ -35,7 +35,7 @@ const UserSchema1 = new Schema ({
 })
 UserSchema1.methods.generateAuthToken1=async function(){
     try{
-        const token = jwt.sign({_id:this._id},`hello`)
+        const token = jwt.sign({_id:this._id},`${process.env.SECRET_KEY}`)
         this.tokens = this.tokens.concat({token:token})
         await this.save() ;
         return token ;
