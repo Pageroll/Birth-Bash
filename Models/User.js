@@ -22,6 +22,10 @@ const UserSchema1 = new Schema ({
     branch: {
         type: String
     },
+
+    Email:{
+        type: String
+    },
     tokens: [{
         token:{
             type: String,
@@ -31,7 +35,7 @@ const UserSchema1 = new Schema ({
 })
 UserSchema1.methods.generateAuthToken1=async function(){
     try{
-        const token = jwt.sign({_id:this._id},`${process.env.SECRET_KEY}`)
+        const token = jwt.sign({_id:this._id},`hello`)
         this.tokens = this.tokens.concat({token:token})
         await this.save() ;
         return token ;
