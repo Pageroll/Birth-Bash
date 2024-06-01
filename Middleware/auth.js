@@ -12,7 +12,7 @@ const auth = async (req, res, next) => {
         const token = await req.cookies.jwt
         console.log("auth token",token);
         const verifyUser = jwt.verify(token, `${process.env.SECRET_KEY}`);
-        console.log(verifyUser)
+        console.log("verified", verifyUser)
         // const user2 = await user2022.findOne({ _id: verifyUser._id, "tokens.token": token });
         const user3 = await birth.findOne({ _id: verifyUser._id, "tokens.token": token })
         // if (!user2) {
