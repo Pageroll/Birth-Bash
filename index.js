@@ -330,7 +330,7 @@ app.get('/logout', (req, res) => {
         sameSite: 'none',
     });
     console.log("1")
-    res.status(200).send('User Logout');
+    res.status(502).send('User Logout');
 
 })
 
