@@ -23,6 +23,6 @@
     "web-vitals": "^3.5.1"
   },
   "engines": {
-    "node": ">=14 <21"
+    "node": "18.x"
   }
 }
