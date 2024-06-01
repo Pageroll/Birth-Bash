@@ -10,7 +10,7 @@ const auth = async (req, res, next) => {
     try {
         console.log("auth reached");
         const token = await req.cookies.jwt
-        console.log(token);
+        console.log("auth token",token);
         const verifyUser = jwt.verify(token, `${process.env.SECRET_KEY}`);
         console.log(verifyUser)
         // const user2 = await user2022.findOne({ _id: verifyUser._id, "tokens.token": token });
@@ -22,7 +22,7 @@ const auth = async (req, res, next) => {
                 console.log(user3)
                 req.token = token;
                 req.user = user3;
-               req.userID = user3._id;
+                req.userID = user3._id;
                 next();
             }
         // }
