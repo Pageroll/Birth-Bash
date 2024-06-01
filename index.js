@@ -15,17 +15,17 @@ const app = express()
 const PORT = process.env.PORT || 4400;
 const cookieParser = require('cookie-parser')
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+mongo()
 
 const corsOptions = {
     origin: `${process.env.CORS_ORIGIN}`,
     credentials: true, // This is important for cookies
     methods: ["GET", "POST", "DELETE"],
 };
-
-app.use(bodyParser.urlencoded({ extended: true }));
-mongo()
-app.use(cookieParser());
 app.use(cors(corsOptions));
+app.use(cookieParser());
 app.use(express.json());
 
 
