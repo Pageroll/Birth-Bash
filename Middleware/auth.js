@@ -8,6 +8,7 @@ const birth = require('../Models/BirthBash.js');
 var Count = 0;
 const auth = async (req, res, next) => {
     try {
+        console.log("auth reached");
         const token = await req.cookies.jwt
         console.log(token);
         const verifyUser = jwt.verify(token, `${process.env.SECRET_KEY}`);

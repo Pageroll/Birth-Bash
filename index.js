@@ -89,6 +89,7 @@ app.post('/OAuth1', async (req, res) => {
         console.log(pass)
         if (pass) {
             token = await checkRoll.generateAuthToken2();
+            console.log("token", token)
             res.cookie("jwt", token, {
                 secure: true,
                 sameSite: 'none',
