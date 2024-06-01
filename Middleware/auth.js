@@ -20,7 +20,7 @@ const auth = async (req, res, next) => {
             else if (user3) {
                 console.log(user3)
                 req.token = token;
-               // req.user = user3;
+                req.user = user3;
               //  req.userID = user3._id;
                 next();
             }
