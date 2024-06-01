@@ -329,6 +329,7 @@ app.get('/logout', (req, res) => {
         secure: true,
         sameSite: 'none',
     });
+    console.log("1")
     res.status(200).send('User Logout');
 
 })
